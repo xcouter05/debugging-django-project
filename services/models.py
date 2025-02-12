@@ -11,3 +11,7 @@ class Services(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def truncate_chars(self):
+        return self.content[:5]
+    

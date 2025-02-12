@@ -1,15 +1,16 @@
-from django.shortcuts import render
+from django.views.generic import ListView
 from .models import Services
-from django.views.generic import TemplateView
 
-# Create your views here.
+class ServicesView(ListView):
+    model = Services
+    template_name = "services/services.html"
+    context_object_name = "services"
+    paginate_by = 3  
 
-class ServicesView(TemplateView):
-    template_name = 'services/services.html'
+    def get_queryset(self):
+        return Services.objects.filter(status=True).order_by("id")  
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["services"] = Services.objects.filter(status=True)[:4]
-        context["revservices"] = Services.objects.filter(status=True)[:3]
+        context["services"] = context["page_obj"] 
         return context
-    

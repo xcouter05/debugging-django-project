@@ -55,6 +55,23 @@
                 </div>
               </div>
               {% endfor %}
+              {% if services.paginator.num_pages > 1 %} 
+              <div>
+                  {% if services.has_previous %}
+                      <a href="?page=1"><button>First page</button></a>
+                      <a href="?page={{ services.previous_page_number }}"><button>Previous page</button></a>
+                  {% endif %}
+          
+                  
+          
+                  {% if services.has_next %}
+                      <a href="?page={{ services.next_page_number }}"><button>Next page</button></a>
+                      <a href="?page={{ services.paginator.num_pages }}"><button>Last page</button></a>
+                  {% endif %}
+
+              </div>
+              <span>Page {{ services.number }} of {{ services.paginator.num_pages }}</span>
+          {% endif %}
               </div>
             </div>
           </div>
