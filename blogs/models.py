@@ -39,6 +39,9 @@ class Blog(models.Model):
     
     def truncate_chars(self):
         return self.desc1[:20]
+    
+    class Meta:
+        ordering = ["-created_at"]
 
 
 
