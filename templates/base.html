@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Active Bootstrap Template</title>
+  <title>{% block title %}{% endblock title %}</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -53,7 +53,7 @@
           <li><a href={% url "root:home" %} class="active">Home</a></li>
           <li><a href={% url "root:about" %}>About</a></li>
           <li><a href={% url "services:services" %}>Services</a></li>
-          <li><a href={% url "portfolio:portfolios" %}>Portfolio</a></li>
+          <li><a href={% url "portfolio:portfolio" %}>Portfolio</a></li>
           <li><a href={% url "teams:teams" %}>Team</a></li>
           <li><a href={% url "blogs:blogs" %}>Blog</a></li>
           <li class="dropdown"><a href="#"><span>Category</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
