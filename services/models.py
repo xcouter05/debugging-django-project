@@ -13,5 +13,4 @@ class Services(models.Model):
         return self.title
     
     def truncate_chars(self):
-        return self.content[:5]
-    
+        return self.content[:20]

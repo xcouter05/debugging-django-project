@@ -1,8 +1,10 @@
+from django.shortcuts import render
 from django.views.generic import ListView , DetailView
 from .models import Portfolio
 from .models import Category
 from team.models import Team
 
+# Create your views here.
 class PortfolioListView(ListView):
     model = Portfolio
     template_name = "portfolio/portfolio.html"
@@ -15,8 +17,7 @@ class PortfolioListView(ListView):
         if category:
             qs = qs.filter(category__title__iexact=category)  
         return qs
-
-
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all()
@@ -35,4 +36,3 @@ class PortfolioDetailView(DetailView):
         context["agent_skill"] = agent.skill 
         context["all_agents"] = Team.objects.all() 
         return context
-

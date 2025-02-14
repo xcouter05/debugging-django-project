@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block "content" %}
+{% load humanize %}
   <main class="main">
 
     <!-- About Section -->
@@ -202,7 +203,7 @@
               <div class="post-content">
                 <div class="meta">
                   <a href="#" class="cat">Development</a> •
-                  <span class="date">{{blog.updated_at}}</span>
+                  <span class="date">{{blog.updated_at|date:"d F, Y"}}</span>
                 </div>
                 <h3><a href="#">{{blog.title}}</a></h3>
                 <p>

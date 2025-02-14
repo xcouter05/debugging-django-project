@@ -6,10 +6,8 @@ from .models import Testimonials
 from team.models import Team
 from services.models import Services
 from blogs.models import Blog
-# Create your views here.
 
-# def home(request):
-#     return render(request, 'root/index.html')
+# Create your views here.
 
 class HomeView(TemplateView):
     template_name = 'root/index.html'
